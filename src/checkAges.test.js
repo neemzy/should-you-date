@@ -50,4 +50,12 @@ describe("checkAges", () => {
     expect(checkAges(20, 25)).toEqual(AgeResult.ALL_GOOD);
     expect(checkAges(35, 50)).toEqual(AgeResult.ALL_GOOD);
   });
+
+  it("validates cases where the younger person is 40 or older", () => {
+    expect(checkAges(40, 40)).toEqual(AgeResult.ALL_GOOD);
+    expect(checkAges(70, 40)).toEqual(AgeResult.ALL_GOOD);
+    expect(checkAges(40, 70)).toEqual(AgeResult.ALL_GOOD);
+    expect(checkAges(100, 40)).toEqual(AgeResult.ALL_GOOD);
+    expect(checkAges(40, 100)).toEqual(AgeResult.ALL_GOOD);
+  });
 });
