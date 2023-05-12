@@ -12,19 +12,13 @@ const MINIMUM = PROPORTIONALITY * 2;
 const IRRELEVANT = 40;
 
 function checkAges(askerAge, otherAge) {
-  if (askerAge < MINIMUM && otherAge < MINIMUM) {
+  const [youngest, oldest] = [askerAge, otherAge].sort((a, b) => a - b);
+
+  if (oldest < MINIMUM) {
     return AgeResult.BOTH_UNDERAGE;
   }
 
-  const [youngest, oldest] = [askerAge, otherAge].sort((a, b) => a - b);
-
-  if (youngest >= IRRELEVANT) {
-    return AgeResult.ALL_GOOD;
-  }
-
-  const limit = oldest / 2 + PROPORTIONALITY;
-
-  if (youngest >= limit) {
+  if (youngest >= Math.min(IRRELEVANT, oldest / 2 + PROPORTIONALITY)) {
     return AgeResult.ALL_GOOD;
   }
 
