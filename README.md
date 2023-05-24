@@ -17,3 +17,7 @@ $ npm run preview       # preview production build
 $ npm run build         # build for production
 $ npm test              # run unit tests
 ```
+
+## Tutorial
+
+Read [the tutorial](tutorial.md) to make this app yourself and learn a couple of things about TDD and Svelte in the process!
